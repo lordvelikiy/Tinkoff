@@ -1,5 +1,7 @@
 ### IDEA project files ###
 .idea/
+build/
+.gradle/
 *.ipr
 *.iws
 *.iml
