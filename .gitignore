@@ -1,0 +1,11 @@
+### IDEA project files ###
+.idea/
+*.ipr
+*.iws
+*.iml
+
+### Java ###
+target/
+/.idea/vcs.xml
+#**/embedded-elastic/
+/audit-curator-impl/log/
