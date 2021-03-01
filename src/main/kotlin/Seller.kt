@@ -1,10 +1,21 @@
-class Seller (override val name: String, override val workplace: String,private var tomatoes : Int =160) :Worker{
-    override fun work() {
-        println("${name} продал 10 помидор ")
-        tomatoes -=10
-    }
-fun think(){
-    println("${name} думает как продать еще ${tomatoes} штук помидор")
+class Seller(name: String, workplace: String) : Worker(name, workplace) {
+    private var tomatoes: Int = 160
+        set(value) {
+            field = value
+            println("$name продал 10 помидор")
+        }
 
-}
+    override fun work() {
+        "$name пересчитывает продукты".prettyPrint()
+
+    }
+
+    fun think() {
+        println("$name думает как продать еще $tomatoes штук помидор")
+
+    }
+
+    fun sell() {
+        tomatoes -= 10
+    }
 }

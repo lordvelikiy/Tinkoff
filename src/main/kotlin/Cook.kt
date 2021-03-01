@@ -1,8 +1,10 @@
-open class Cook(override val name: String, override val workplace: String) :Worker{
+open class Cook(name: String, workplace: String) : Worker(name, workplace) {
+
     override fun work() {
-      "${name} приготовил еду ".prettyPrint()
+        "$name приготовил еду ".prettyPrint()
     }
-    fun cutting(){
-        println("${name} режит мясо")
+
+    open fun cutting() {
+        println("$name режит мясо")
     }
 }

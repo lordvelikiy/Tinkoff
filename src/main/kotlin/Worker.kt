@@ -1,12 +1,9 @@
-interface Worker {
-    val name :String
-    val workplace : String
-   fun work()
+abstract class Worker(val name: String, val workplace: String) {
 
-    fun workerInfo()="Информация о работнике".prettyPrint()
+    abstract fun work()
 
-    fun String.prettyPrint(){
-        println("Имя работника - ${name}  место работы ${workplace}")
+    fun String.prettyPrint() {
+        println("Имя работника - $name,  место работы - $workplace")
         println(this)
         println()
     }

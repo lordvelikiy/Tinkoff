@@ -1,11 +1,27 @@
-class Chef(override val name: String, override val workplace: String,private var students :Int=0):Cook(name, workplace),Study {
-    override fun teaches() {
-        println("${name} обучил одного повара")
-        ++students
+class Chef(name: String, workplace: String) : Mentor, Cook(name, workplace) {
+    private var list: ArrayList<Worker> = arrayListOf()
+    override fun cutting() {
+        println("$name разработал новое меню")
+    }
+
+    override fun teaches(worker: Worker) {
+
+        if (worker is Cook) {
+            if (!list.contains(worker)) {
+                list.add(worker)
+                if (worker == this) println("Самого себя обучить невозможно")
+                else println("$name обучил еще одного повара")
+            } else println("${worker.name} уже обучался у этого шеф-повара ")
+        } else println("$name обучает только поваров ")
     }
 
     override fun numberOfStudents() {
-        println("${students} - количество поваров которых обучил ${name}")
+        println("${list.size} - количество поваров которых обучил $name")
+    }
+
+    override fun numberOfStudents(worker: Worker) {
+        if (list.contains(worker)) println("${worker.name} обучался у этого шеф-повара ")
+        else println("${worker.name}name не обучался у этого шеф-повара ")
     }
 
 }

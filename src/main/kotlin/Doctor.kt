@@ -1,10 +1,10 @@
-open class Doctor (override val name: String, override val workplace: String ) :Worker {
+open class Doctor(name: String, workplace: String) : Worker(name, workplace) {
 
     override fun work() {
-    "${name} выличил пациента".prettyPrint()
-
+        "$name выличил пациента".prettyPrint()
     }
-    fun inspection (){
-        println("${name} осмотрел пациента")
+
+    fun inspection() {
+        println("$name осмотрел пациента")
     }
 }

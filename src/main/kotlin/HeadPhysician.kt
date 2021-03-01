@@ -1,11 +1,23 @@
-class HeadPhysician(override val name: String, override val workplace: String,private var students :Int=0) :Doctor(name, workplace),Study {
+class HeadPhysician(name: String, workplace: String) : Doctor(name, workplace), Mentor {
+    private var list: ArrayList<Worker> = arrayListOf()
 
-    override fun teaches() {
-        println("${name} обучил двух врачей")
-        students+=2
+    override fun teaches(worker: Worker) {
+
+        if (worker is Doctor) {// проверка являеться ли обучаемый поваром
+            if (!list.contains(worker)) {//проверка обучался воркер у него
+                list.add(worker)// проверка являеться ли обучаемый и ментор одним человеком
+                if (worker == this) println("Самого себя обучить невозможно")
+                else println("$name обучил еще одного врача")
+            } else println("${worker.name} уже обучался у этого главврача ")
+        } else println("$name обучает только врачей ")
     }
 
     override fun numberOfStudents() {
-        println("${students} - количество врачей которыч обучил ${name}")
+        println("${list.size} - количество врачей которыч обучил $name")
+    }
+
+    override fun numberOfStudents(worker: Worker) {
+        if (list.contains(worker)) println("${worker.name} обучался у этого главврача")
+        else println("${worker.name} не обучался у этого главврача")
     }
 }
