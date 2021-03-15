@@ -1,16 +1,14 @@
-class Turn {
+class Queue<T> {
 
-    private var turn = mutableListOf<Any>()
-    fun enqueue(vararg value: Any) {
+    private var turn = mutableListOf<T>()
+
+    fun enqueue(vararg value: T) {
         value.forEach { el -> turn.add(el) }
-
     }
 
-    fun dequeue(): Any {
-        if (turn.size == 0) return "Turn is empty"
+    fun dequeue(): T {
         val value = turn[0]
         turn.removeAt(0)
-
         return value
     }
 }
