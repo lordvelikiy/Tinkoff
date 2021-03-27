@@ -1,24 +1,28 @@
 fun main() {
-    val first = Queue<Any>()
-    first.enqueue("1")
-    first.enqueue("2", 3, true)
-    for (i in 0..2) {
-        print("${first.dequeue()}, ")
-    }
+
+    val queue = queue("1",2,3)
+
+    queue.enqueue("4")
+    println(queue.dequeue())//1
+    println(queue.dequeue())//2
+    println(queue.dequeue())//3
+    println(queue.dequeue())//4
+    println(queue.dequeue())//null
+    queue.enqueue(5)
+    println(queue.dequeue())//5
+
+    println()
+    println("=====/////====")
     println()
 
-    val stack = Stack<Int>()
-    stack.push(1)
-    stack.push(23, 3, 4)
+    val stack = stack(1,2,3)
 
-    for (i in 0..3) {
-        print("${stack.pop()}, ")
-    }
-    println()
+    println(stack.pop())//3
+    stack.push(4)
+    println(stack.pop())//4
+    println(stack.pop())//2
+    println(stack.pop())//1
+    println(stack.pop())//null
 
-    val stackList = StackList("hi", 1, "house")
-    for (i in 0..3) {
-        print("${stackList.pop()}, ")
-    }
 }
 

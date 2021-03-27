@@ -1,18 +1,23 @@
 class Stack<T> {
     private var stack = mutableListOf<T>()
 
-    fun push(vararg value: T) {
-        value.forEach { el -> stack.add(el) }
+    fun push(value: T) {
+        stack.add(value)
     }
 
-    fun pop(): T {
+    fun pop(): T? {
+        if (stack.isEmpty()) return null
         val value = stack.last()
         stack.removeAt(stack.size - 1)
         return value
     }
 }
-fun <T> StackList(vararg elements: T): Stack<T> {
-    var test = Stack<T>()
-    elements.forEach { test.push(it) }
-    return test
-}
+
+fun <T> stack(vararg el: T) =
+    if (el.isEmpty()) Stack<T>()
+    else {
+        val a = Stack<T>()
+        for (i in el.indices)
+            a.push(el[i])
+        a
+    }
