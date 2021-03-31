@@ -3,13 +3,6 @@ package lesson7
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicInteger
 
-//3.Написать программу с 3 отдельными пулами потоков (10, 20, 30 - размеры),
-//
-//после чего эти пулы должны по отдельности
-//
-//увеличивать какое—то значение с 0 до 1_000_000.
-//
-//Результаты работы пулов потоков вывести на экран от лучшего к худшему и с понимаем какой это пул
 fun threadPools() {
 
     val map = mutableMapOf<Long, Int>()
