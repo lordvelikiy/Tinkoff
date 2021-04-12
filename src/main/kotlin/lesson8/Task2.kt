@@ -6,7 +6,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
-    var scheduleDay = scheduleDay().iterator()
+    val scheduleDay = scheduleDay().iterator()
 
     while (scheduleDay.hasNext()) {
         println(scheduleDay.next())
